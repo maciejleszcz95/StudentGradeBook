@@ -14,10 +14,12 @@ namespace StudentGradeBook
             this.Gender = GenderValidation(gender);
             this.Age = AgeValidation(age);
         }
+
         public StudentBase(string fullName, char gender, int age)
             : this(GetFirstname(fullName), GetLastname(fullName), gender, age)
         {
         }
+
         public StudentBase(string fullName)
             : this(fullName, 'N', 0)
         {
@@ -27,6 +29,7 @@ namespace StudentGradeBook
         public string Surname { get; private set; }
         public char Gender { get; private set; }
         public int Age { get; private set; }
+
         public string GenderInString
         {
             get
@@ -60,6 +63,7 @@ namespace StudentGradeBook
                     throw new Exception($"\"{gender}\" is wrong gender value!");
             }
         }
+
         private static int AgeValidation(int age)
         {
             if (age < 0)
@@ -69,6 +73,7 @@ namespace StudentGradeBook
 
             return age;
         }
+
         private static bool IsPlusMinusGrade(string grade)
         {
             grade = grade.Trim();
@@ -78,6 +83,7 @@ namespace StudentGradeBook
                && value <= 6
                && (grade[1] == '-' || grade[1] == '+'));
         }
+
         private static float PlusMinusGradeConversion(string grade)
         {
             grade = grade.Trim();
@@ -92,6 +98,7 @@ namespace StudentGradeBook
                     throw new Exception("Bad grade value!");
             }
         }
+
         private static string GetFirstname(string fullName)
         {
             var names = fullName.Trim().Split(' ');
@@ -99,6 +106,7 @@ namespace StudentGradeBook
 
             return firstname;
         }
+
         private static string GetLastname(string fullName)
         {
             var names = fullName.Trim().Split(' ');
@@ -122,6 +130,7 @@ namespace StudentGradeBook
             }
             return ret;
         }
+
         protected static string ConvertToGrade(float grade)
         {
             switch (grade)
@@ -168,6 +177,7 @@ namespace StudentGradeBook
             float value = (float)grade;
             this.AddGrade(value);
         }
+
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float resultFloat))
@@ -187,6 +197,7 @@ namespace StudentGradeBook
                 throw new Exception($"Value \"{grade}\" is not a school grade or float value!");
             }
         }
+
         public void AddGrade(char grade)
         {
             var buffer = grade.ToString();
@@ -219,6 +230,7 @@ namespace StudentGradeBook
         }
 
         public abstract List<string> GetGrades();
+
         public abstract Statistics GetStatistics();
     }
 }

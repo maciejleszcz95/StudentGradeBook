@@ -12,10 +12,12 @@ namespace StudentGradeBook
             : base(name, surname, gender, age)
         {
         }
+
         public StudentInMemory(string fullName, char gender, int age)
             : base(fullName, gender, age)
         {
         }
+
         public StudentInMemory(string fullName)
             : base(fullName)
         {
@@ -37,10 +39,12 @@ namespace StudentGradeBook
                 throw new Exception($"Grade value \"{grade}\" is out of range!");
             }
         }
+
         public override List<string> GetGrades()
         {
             return ConvertToGrade(this.grades);
         }
+
         public override Statistics GetStatistics()
         {
             var statistics = new Statistics();

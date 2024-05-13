@@ -140,6 +140,7 @@ string ReadString(string input)
         }
     }
 }
+
 int ReadMenuSelection(int max)
 {
     while (true)

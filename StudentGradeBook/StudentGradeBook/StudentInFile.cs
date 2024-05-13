@@ -11,14 +11,17 @@ namespace StudentGradeBook
             : base(name, surname, gender, age)
         {
         }
+
         public StudentInFile(string fullName, char gender, int age)
             : base(fullName, gender, age)
         {
         }
+
         public StudentInFile(string fullName)
             : base(fullName)
         {
         }
+
         public override void AddGrade(float grade)
         {
             if (grade >= 1 && grade <= 6)
